@@ -25,6 +25,7 @@ def order(num=1, product_no=1, user_no=1):
         order.append(o)
 
         od = {}
+        od["id"] = i
         od["order_id"] = i
         od["user_id"] = fake.random_int(1, user_no)
         od["total"] = fake.random_int(100000, 1000000)
@@ -41,6 +42,7 @@ def product(num=1):
     inventory = []
     for i in tqdm(range(1, num)):
         p = fake.vehicle_object()
+        p["id"] = i
         p["inventory_id"] = i
         p["created_at"] = fake.date_this_century()
         product.append(p)
@@ -68,6 +70,7 @@ def user(num=1):
         user.append(u)
 
         d = {}
+        d["id"] = i
         d["user_id"] = i
         d["address"] = fake.address()
         d["city"] = fake.city()
