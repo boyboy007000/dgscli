@@ -18,6 +18,7 @@ def order(num=1, product_no=1, user_no=1):
     detail = []
     for i in tqdm(range(1, num)):
         o = {}
+        o["id"] = i
         o["product_id"] = fake.random_int(1, product_no)
         o["quantity"] = fake.random_int(1, 3)
         o["created_at"] = fake.date_this_century()
@@ -45,6 +46,7 @@ def product(num=1):
         product.append(p)
 
         iv = {}
+        iv["id"] = i
         iv["quantity"] = fake.random_int(0, 500)
         inventory.append(iv)
     dfp = pd.DataFrame(product)
@@ -58,6 +60,7 @@ def user(num=1):
     detail = []
     for i in tqdm(range(1, num)):
         u = {}
+        u["id"] = i
         u["username"] = fake.user_name()
         u["firstname"] = fake.first_name()
         u["lastname"] = fake.last_name()
